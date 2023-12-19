@@ -1,0 +1,52 @@
+// proto/service.proto
+syntax = "proto3";
+
+option go_package = "proto/crud";
+
+package crud;
+
+service CrudService {
+  rpc Create(CreateRequest) returns (CreateResponse);
+  rpc Read(ReadRequest) returns (ReadResponse);
+  rpc Update(UpdateRequest) returns (UpdateResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+}
+
+message CreateRequest {
+  string name = 1;
+  int32 age = 2;
+}
+
+message CreateResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message ReadRequest {
+  int32 id = 1;
+}
+
+message ReadResponse {
+  string name = 1;
+  int32 age = 2;
+}
+
+message UpdateRequest {
+  int32 id = 1;
+  string name = 2;
+  int32 age = 3;
+}
+
+message UpdateResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message DeleteRequest {
+  int32 id = 1;
+}
+
+message DeleteResponse {
+  bool success = 1;
+  string message = 2;
+}
